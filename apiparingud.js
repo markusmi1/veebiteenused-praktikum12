@@ -106,12 +106,12 @@ async function handleFormSubmit(event) {
 }
 
 async function listiraamatud() {
-    const responseData = await getDataAsJson("http://localhost:5000/raamatud/");
+    const responseData = await getDataAsJson("https://michelis-praktikum12-gre4gkcyexgeaaa3.northeurope-01.azurewebsites.net/raamatud/");
     const resultElement = document.getElementById("raamatud_result");
     resultElement.innerHTML = "";
     for (var raamat of responseData.raamatud){
-	    resultElement.innerHTML += '<a href="http://localhost:5000/raamatud/'+raamat+'"  download="'+raamat+'.txt" >' +raamat+".txt</a> " +
-			'<a href="#" onclick="deleteObject(\'http://localhost:5000/raamatud/'+raamat+'\')" > [kustuta]</a>' +
+	    resultElement.innerHTML += '<a href="https://michelis-praktikum12-gre4gkcyexgeaaa3.northeurope-01.azurewebsites.net/raamatud/'+raamat+'"  download="'+raamat+'.txt" >' +raamat+".txt</a> " +
+			'<a href="#" onclick="deleteObject(\'https://michelis-praktikum12-gre4gkcyexgeaaa3.northeurope-01.azurewebsites.net/raamatud/'+raamat+'\')" > [kustuta]</a>' +
 			"<br />";
     }
 }
