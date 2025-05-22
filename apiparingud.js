@@ -28,7 +28,7 @@ async function postFormDataAsJson({ url, formData }) {
         // The body of our POST request is the JSON string that we created above.
         body: formDataJsonString,
     };
-
+    console.log(url);
     const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {
@@ -41,34 +41,34 @@ async function postFormDataAsJson({ url, formData }) {
 
 async function getDataAsJson(url) {
 
-const fetchOptions = {
-    method: "GET",
-    headers: {
-        "Accept": "application/json"
-    }
-};
-const response = await fetch(url, fetchOptions);
+    const fetchOptions = {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    };
+    const response = await fetch(url, fetchOptions);
 
-if (!response.ok) {
-    const errorMessage = await response.text();
-    throw new Error(errorMessage);
-}
-return response.json();
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+    }
+    return response.json();
 }
 
 
 async function deleteObject(url) {
 
-const fetchOptions = {
-    method: "DELETE"
-};
-const response = await fetch(url, fetchOptions);
+    const fetchOptions = {
+        method: "DELETE"
+    };
+    const response = await fetch(url, fetchOptions);
 
-if (!response.ok) {
-    const errorMessage = await response.text();
-    throw new Error(errorMessage);
-}
-listiraamatud();
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+    }
+    listiraamatud();
 
 }
 
@@ -88,7 +88,7 @@ async function handleFormSubmit(event) {
             
             const raamatu_id = formData.get("raamatu_id");
             formData.delete("raamatu_id");
-            url = "http://localhost:5001/raamatu_otsing/" + raamatu_id;
+            url = "https://michelis-praktikum12-otsing-d8fmathedvazc6hh.northeurope-01.azurewebsites.net/raamatu_otsing/" + raamatu_id;
         }else{
         // This takes the API URL from the form's `action` attribute.
             url = form.action;
